@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import userServices from "../../api/services/user";
+import { toast } from "react-toastify";
 
 const Signup = () => {
     const [signupFormData, setSignupFormData] = useState({
@@ -17,13 +18,22 @@ const Signup = () => {
     };
     const submitHandler = async (e) => {
         e.preventDefault();
-        const { name, mobileNo, email, password } = signupFormData;
+        // const { name, mobileNo, email, password } = signupFormData;
 
         try {
-            await signupUser(signupFormData);
+            const { message, success } = await signupUser(signupFormData);
+            console.log(message, success);
+            if (success) {
+                toast.success("user signup successfully 💕");
+            } else {
+                toast.error(message);
+            }
         } catch (error) {
-            alert("signup unsuccessfull");
-            console.log(error);
+            if (error) {
+                toast.error(error.response.data.message || error.message);
+            } else {
+                toast.error("Something went wrong. Please try again.");
+            }
         }
     };
 
@@ -37,12 +47,12 @@ const Signup = () => {
     return (
         <div className="bg-theme-gradient flex justify-center items-center min-h-screen">
             <div className="border-2 border-black bg-white rounded-md p-10 w-[400px]">
-                <h2 className="text-[40px] font-bold font-mono">Singup</h2>
+                <h2 className="text-[40px] font-bold font-mono"> Singup </h2>{" "}
                 <form onSubmit={submitHandler}>
                     <div className="flex flex-col">
                         <label className="font-semibold ml-1" htmlFor="">
-                            Name
-                        </label>
+                            Name{" "}
+                        </label>{" "}
                         <input
                             className="border-2 border-slate-400 m-1 outline-none rounded-sm p-0.5"
                             type="text"
@@ -50,10 +60,10 @@ const Signup = () => {
                             onChange={handleChange}
                             name="name"
                             value={signupFormData.name}
-                        />
+                        />{" "}
                         <label className="font-semibold ml-1" htmlFor="">
-                            MobileNo
-                        </label>
+                            MobileNo{" "}
+                        </label>{" "}
                         <input
                             className="border-2 border-slate-400 m-1 outline-none rounded-sm p-0.5"
                             type="tel"
@@ -61,10 +71,10 @@ const Signup = () => {
                             onChange={handleChange}
                             name="mobileNo"
                             value={signupFormData.mobileNo}
-                        />
+                        />{" "}
                         <label className="font-semibold ml-1" htmlFor="">
-                            Email
-                        </label>
+                            Email{" "}
+                        </label>{" "}
                         <input
                             className="border-2 border-slate-400 m-1 outline-none rounded-sm p-0.5"
                             type="text"
@@ -72,10 +82,10 @@ const Signup = () => {
                             onChange={handleChange}
                             name="email"
                             value={signupFormData.email}
-                        />
+                        />{" "}
                         <label className="font-semibold ml-1" htmlFor="">
-                            Password
-                        </label>
+                            Password{" "}
+                        </label>{" "}
                         <input
                             className="border-2 border-slate-400 m-1 outline-none rounded-sm p-0.5"
                             type="text"
@@ -83,15 +93,15 @@ const Signup = () => {
                             onChange={handleChange}
                             name="password"
                             value={signupFormData.password}
-                        />
+                        />{" "}
                         <button
                             className="bg-theme-gradient w-[80px] rounded-[5px] h-[35px] font-semibold mt-4 text-slate-200 font-mono items-center mx-auto
-                    ">
-                            Submit
-                        </button>
-                    </div>
-                </form>
-            </div>
+        ">
+                            Submit{" "}
+                        </button>{" "}
+                    </div>{" "}
+                </form>{" "}
+            </div>{" "}
         </div>
     );
 };
