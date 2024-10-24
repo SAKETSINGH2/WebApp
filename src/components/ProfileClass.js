@@ -48,13 +48,15 @@ class Profile extends React.Component {
         console.log("child1 render is called");
         return (
             <>
-                <div>hyy saket welcome to learn class component....!</div>
+                <div> hyy saket welcome to learn class component....! </div>{" "}
                 <h1>
-                    {this.props.name} , {this.props.surname} ,{" "}
-                </h1>
+                    {" "}
+                    {this.props.name}, {this.props.surname},{" "}
+                </h1>{" "}
                 <h1>
-                    {this.state.count} , {this.state.name} , {this.state.count2}
-                </h1>
+                    {" "}
+                    {this.state.count}, {this.state.name}, {this.state.count2}{" "}
+                </h1>{" "}
                 <button
                     onClick={() => {
                         this.setState({
@@ -64,8 +66,8 @@ class Profile extends React.Component {
                         });
                     }}>
                     {" "}
-                    click
-                </button>
+                    click{" "}
+                </button>{" "}
             </>
         );
     }

@@ -13,6 +13,7 @@ import { lazy, Suspense } from "react";
 import Test from "./components/Test";
 import Home from "./components/Home";
 import Signup from "./components/pages/Signup";
+import Login from "./components/pages/Login";
 
 const About = lazy(() => import("./components/About"));
 
@@ -34,8 +35,8 @@ export const appRouter = createBrowserRouter([
         children: [
             {
                 path: "/",
-                element: <Home />,
-                // element: <Body />,
+                // element: <Home />,
+                element: <Body />,
             },
             {
                 path: "/about",
@@ -62,6 +63,10 @@ export const appRouter = createBrowserRouter([
             //     path: "/profile",
             //     element: <Profile />,
             // },
+            {
+                path: "/login",
+                element: <Login />,
+            },
         ],
     },
 ]);

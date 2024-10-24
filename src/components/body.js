@@ -23,12 +23,17 @@ const Body = () => {
     // console.log("Render");
 
     if (!data) {
-        return <Shimmer />;
+        // return <Shimmer />;
+        return (
+            <p className=" flex justify-center items-center mt-[20%] mb-[15%] text-[18px] font-bold from-orange-400">
+                loading..
+            </p>
+        );
     }
 
     if (!isOnline) {
         return (
-            <div className="flex justify-center font-bold text-[40px]">
+            <div className="flex justify-center font-bold text-[40px] mono">
                 you are offline , please connect to the internet
             </div>
         );

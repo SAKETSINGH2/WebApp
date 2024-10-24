@@ -18,13 +18,23 @@ const userServices = () => {
     const signupUser = async(reqData) => {
         const url = `${BASE_URL}/user`;
         const apiResponse = await requestor.makeRequest(ApiRequestType.POST, url, reqData);
-        console.log("apiResponse", apiResponse)
+        console.log("signupUserApiResponse", apiResponse)
         return apiResponse;
     }
 
+    const loginUser = async(reqData) => {
+        const url = `${BASE_URL}/user/login`;
+        const apiResponse = await requestor.makeRequest(ApiRequestType.POST, url, reqData);
+        console.log("loginUserApiResponse", apiResponse)
+        return apiResponse;
+
+    }
+
+
     return {
         usersData,
-        signupUser
+        signupUser,
+        loginUser
     }
 }
 

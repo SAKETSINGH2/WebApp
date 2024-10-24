@@ -25,21 +25,23 @@ const Navbar = () => {
             )}{" "}
             <div className="flex font-semibold text-white gap-x-6 m-6">
                 <Link to="/">
-                    <p> Home </p>
+                    <p> Home </p>{" "}
                 </Link>{" "}
                 <Link to="/about">
-                    <p> About </p>
+                    <p> About </p>{" "}
                 </Link>{" "}
                 <Link to="/contact">
-                    <p> Contact </p>
-                </Link>
-            </div>
+                    <p> Contact </p>{" "}
+                </Link>{" "}
+            </div>{" "}
             {isLoggedIn ? (
-                <button
-                    className="bg-theme-gradient w-[80px] rounded-[5px] h-[35px] font-semibold mt-4 mr-7 text-slate-200 font-mono"
-                    onClick={() => setIsLoggedIn(false)}>
-                    Logout
-                </button>
+                <Link to="/login">
+                    <button
+                        className="bg-theme-gradient w-[80px] rounded-[5px] h-[35px] font-semibold mt-4 mr-7 text-slate-200 font-mono"
+                        onClick={() => setIsLoggedIn(false)}>
+                        Login
+                    </button>
+                </Link>
             ) : (
                 <Link to="/signup">
                     <button
@@ -48,7 +50,7 @@ const Navbar = () => {
                         Signup
                     </button>
                 </Link>
-            )}
+            )}{" "}
         </div>
     );
 };

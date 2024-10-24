@@ -11,8 +11,6 @@ const useOnline = () => {
         setIsOnline(false);
     }
 
-    console.log("isOnline");
-
     useEffect(() => {
         window.addEventListener("online", handleOnline);
 
